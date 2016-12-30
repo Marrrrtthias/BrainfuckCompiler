@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import main.BrainfuckParser;
 
+
 public class BrainfuckParserTest {
 
 	@Test

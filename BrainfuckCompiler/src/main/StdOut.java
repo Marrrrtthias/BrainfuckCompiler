@@ -1,5 +1,6 @@
 package main;
 
+
 /******************************************************************************
  *  Compilation:  javac StdOut.java
  *  Execution:    java StdOut

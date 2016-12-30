@@ -1,12 +1,14 @@
 package main;
 
+
 import java.io.*;
-import java.io.IOException;
 
 public class Main {
     
     public static void main(String[] args) {
-        String code = getFileContent(StdIn.readLine());
+    	//System.out.println("Enter path to source file");
+        //String code = getFileContent(StdIn.readLine());
+    	String code = "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.+++.";
         System.out.println("Now running the following Brainfuck program:\n\n" + code);
         new BrainfuckRunner(code).run();
     }

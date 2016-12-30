@@ -1,5 +1,6 @@
 package main;
 
+
 public class BrainfuckRunner {
     Tape tape;
     String code;
@@ -11,9 +12,11 @@ public class BrainfuckRunner {
         }
         this.code = code;
         this.tape = new Tape();
+        System.out.println("BF runner initialized");
     }
 
     public void run() {
+        System.out.println("BF runner starting");
     	while (pos < code.length()) {
     		execNext();
     	}
@@ -22,29 +25,35 @@ public class BrainfuckRunner {
 	private void execNext() {
 		switch (code.charAt(pos)) {
 			case '+':
+		        System.out.println("BF runner +");
 				tape.plus();
 				break;
 			case '-':
+		        System.out.println("BF runner -");
 				tape.minus();
 				break;
 			case '<':
+		        System.out.println("BF runner <");
 				tape.bkw();
 				break;
 			case '>':
+		        System.out.println("BF runner >");
 				tape.fwd();
 				break;
 			case '.':
+		        System.out.println("BF runner .");
 				print(tape.get());
 				break;
 			case ',':
+		        System.out.println("BF runner ,");
 				read();
 				break;
 			case '[':
-				loop(pos);
+		        System.out.println("BF runner [");
+				loop(pos = pos+1);
 				break;
-			default:
-				pos++;
 		}
+		pos++;
 	}
 
     private void loop(int startPos) {
@@ -56,7 +65,7 @@ public class BrainfuckRunner {
 		}
 	}
 
-	private void print(int symbol) {
+	void print(int symbol) {
         System.out.println((char) symbol);
     }
 

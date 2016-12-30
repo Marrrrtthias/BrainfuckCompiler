@@ -1,5 +1,6 @@
 package main;
 
+
 public class BrainfuckParser {
     int pos = 0;
     String code;
