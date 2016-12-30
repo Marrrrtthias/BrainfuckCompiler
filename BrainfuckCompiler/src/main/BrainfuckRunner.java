@@ -5,13 +5,15 @@ public class BrainfuckRunner {
     Tape tape;
     String code;
     int pos;
+    public final boolean debugging;
 
-    public BrainfuckRunner(String code) {
+    public BrainfuckRunner(String code, boolean debugging) {
         if(!(new BrainfuckParser(code).check())) {
         	throw new RuntimeException();
         }
         this.code = code;
-        this.tape = new Tape();
+        this.tape = new Tape(this);
+        this.debugging = debugging;
         System.out.println("BF runner initialized");
     }
 
@@ -25,38 +27,52 @@ public class BrainfuckRunner {
 	private void execNext() {
 		switch (code.charAt(pos)) {
 			case '+':
-		        System.out.println("BF runner +");
+				if (debugging) {
+		        	System.out.println("BF runner +");
+				}
 				tape.plus();
 				pos++;
 				break;
 			case '-':
-		        System.out.println("BF runner -");
+				if (debugging) {
+		        	System.out.println("BF runner -");
+				}
 				tape.minus();
 				pos++;
 				break;
 			case '<':
-		        System.out.println("BF runner <");
+				if (debugging) {
+		        	System.out.println("BF runner <");
+				}
 				tape.bkw();
 				pos++;
 				break;
 			case '>':
-		        System.out.println("BF runner >");
+				if (debugging) {
+		        	System.out.println("BF runner >");
+				}
 				tape.fwd();
 				pos++;
 				break;
 			case '.':
-		        System.out.println("BF runner .");
+				if (debugging) {
+		        	System.out.println("BF runner .");
+				}
 				print(tape.get());
 				pos++;
 				break;
 			case ',':
-		        System.out.println("BF runner ,");
+				if (debugging) {
+		        	System.out.println("BF runner ,");
+				}
 				read();
 				pos++;
 				break;
 			case '[':
 				pos++;
-		        System.out.println("BF runner [");
+				if (debugging) {
+		        	System.out.println("BF runner [");
+				}
 				loop(pos);
 				break;
 		}

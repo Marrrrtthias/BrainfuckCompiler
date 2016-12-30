@@ -3,9 +3,11 @@ package main;
 
 public class Tape {
     TapeElement current;
+    BrainfuckRunner runner;
 
-    public Tape() {
+    public Tape(BrainfuckRunner runner) {
         current = new TapeElement(0, null, null);
+        this.runner = runner;
     }
 
     public int get() {
@@ -44,21 +46,23 @@ public class Tape {
     }
     
     private void printTape() {
-    	TapeElement toPrint = current;
-    	while (toPrint.prev != null) {
-    		toPrint = toPrint.prev;
-    	}
-    	while (toPrint != current) {
-    		System.out.print(toPrint.val + " ");
-    		toPrint = toPrint.next;
-    	}
-    	System.out.print("{" + toPrint.val + "}");
-    	toPrint = toPrint.next;
-    	while (toPrint != null) {
-    		System.out.print(toPrint.val + " ");
-    		toPrint = toPrint.next;
-    	}
-    	System.out.print("\n");
+    	if (runner.debugging) {
+			TapeElement toPrint = current;
+			while (toPrint.prev != null) {
+				toPrint = toPrint.prev;
+			}
+			while (toPrint != current) {
+				System.out.print(toPrint.val + " ");
+				toPrint = toPrint.next;
+			}
+			System.out.print("{" + toPrint.val + "}");
+			toPrint = toPrint.next;
+			while (toPrint != null) {
+				System.out.print(toPrint.val + " ");
+				toPrint = toPrint.next;
+			}
+			System.out.print("\n");
+		}
     }
 
     private class TapeElement {

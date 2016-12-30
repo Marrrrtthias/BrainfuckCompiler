@@ -6,12 +6,17 @@ import java.io.*;
 public class Main {
     
     public static void main(String[] args) {
+    	System.out.println("enable debugging? (y|N)");
+    	boolean debugging = false;
+    	if(StdIn.readString().toLowerCase().equals("y")) {
+    		debugging = true;
+    	}
     	//System.out.println("Enter path to source file");
         //String code = getFileContent(StdIn.readLine());
-    	//String code = "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.+++.";
-        String code = "+++++++++[>++++++++<-]>.";
+    	String code = "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.+++.";
+        //String code = "+++++++++[>++++++++<-]>.";
     	System.out.println("Now running the following Brainfuck program:\n\n" + code);
-        new BrainfuckRunner(code).run();
+        new BrainfuckRunner(code, debugging).run();
     }
 
     static String getFileContent(String path) {
