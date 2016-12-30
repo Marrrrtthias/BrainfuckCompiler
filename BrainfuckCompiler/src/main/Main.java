@@ -8,8 +8,9 @@ public class Main {
     public static void main(String[] args) {
     	//System.out.println("Enter path to source file");
         //String code = getFileContent(StdIn.readLine());
-    	String code = "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.+++.";
-        System.out.println("Now running the following Brainfuck program:\n\n" + code);
+    	//String code = "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.+++.";
+        String code = "+++++++++[>++++++++<-]>.";
+    	System.out.println("Now running the following Brainfuck program:\n\n" + code);
         new BrainfuckRunner(code).run();
     }
 
