@@ -1,3 +1,5 @@
+package main;
+
 public class BrainfuckParser {
     int pos = 0;
     String code;
@@ -7,12 +9,19 @@ public class BrainfuckParser {
     }
 
     public boolean check() {
-        // TODO
+        while (pos < code.length()) {
+        	if (!parseSymbol()) {
+        		return false;
+        	}
+        }
+        return true;
     }
     
     private boolean parseSymbol() {
         if(code.charAt(pos) == '[') {
             return parseLoop();
+        } else if (code.charAt(pos) ==']') {
+        	return false;
         } else {
             pos++;
             return true;
@@ -23,11 +32,18 @@ public class BrainfuckParser {
         if(code.charAt(pos) != '[') {         // sanity check
             throw new RuntimeException();
         }
-        while (code.charAt(pos) != ']') {
-            if (code.charAt(pos) == '[') {
-                parseLoop();
-            }
-            pos++;
-        }
+        try {
+			while (code.charAt(pos) != ']') {
+			    pos++;
+			    if (code.charAt(pos) == '[') {
+			        parseLoop();
+			    }
+			}
+			pos++;
+			return true;
+		} catch (StringIndexOutOfBoundsException e) {
+			// loop is opened but never closed
+			return false;
+		}
     }
 }

@@ -1,3 +1,5 @@
+package main;
+
 public class BrainfuckRunner {
     Tape tape;
     String code;
@@ -11,11 +13,11 @@ public class BrainfuckRunner {
         // TODO
     }
 
-    private print(int symbol) {
+    private void print(int symbol) {
         System.out.println((char) symbol);
     }
 
-    private read() {
+    private void read() {
         tape.set((int) StdIn.readChar());
     }
 }
