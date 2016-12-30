@@ -12,6 +12,7 @@ public class BrainfuckParserTest {
 	public void testCorrect() {
 		assertTrue(new BrainfuckParser("+-fdsf[]").check());
 		assertTrue(new BrainfuckParser("fhsduf[gfghf[hgfh]]fds").check());
+		assertTrue(new BrainfuckParser("++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.+++.").check());
 	}
 	
 	@Test

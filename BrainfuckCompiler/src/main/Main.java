@@ -6,9 +6,9 @@ import java.io.IOException;
 public class Main {
     
     public static void main(String[] args) {
-        String code = getFileContent(args[0]);
+        String code = getFileContent(StdIn.readLine());
         System.out.println("Now running the following Brainfuck program:\n\n" + code);
-        BrainfuckRunner.run(code);
+        new BrainfuckRunner(code).run();
     }
 
     static String getFileContent(String path) {
