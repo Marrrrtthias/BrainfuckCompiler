@@ -18,7 +18,7 @@ public class BrainfuckRunner {
     }
 
     public void run() {
-        System.out.println("BF runner starting");
+        System.out.println("BF runner starting\n\n");
     	while (pos < code.length()) {
     		execNext();
     	}
@@ -90,7 +90,7 @@ public class BrainfuckRunner {
 	}
 
 	void print(int symbol) {
-        System.out.println((char) symbol);
+        System.out.print((char) symbol);
     }
 
     private void read() {
